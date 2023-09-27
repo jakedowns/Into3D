@@ -1,0 +1,52 @@
+﻿#### Background Download - Changelog
+
+Version 0.9
+
+* [FIX]			iOS - clear download from internal dictionary so completed downloads are not returned by GetDownloadOperation.
+
+
+Version 0.8
+
+* [NEW]			Support for standalone builds (using the WWW class) as well as improved Editor stability.
+* [NEW]			Allow controlling the notification behaviour on Android devices (shown, hidden, shown only when completed).
+
+Version 0.7
+
+* [FIX]			Moved Cached<T> into a new namespace, to avoid collisions with other classes.
+
+
+Version 0.6
+
+* [NEW]			Added an overload of StartOrContinueDownload that takes a BackgroundDownloadOptions object.
+* [FIX]			Fixed a bug on iOS where cancelling and restarting download of the same URL did not work.
+
+
+Version 0.5
+
+* [NEW]			Added implementation for GetDownloadOperation on iOS (was missing).
+* [FIX]			Fixed a few tests that were failing when being executed on OSX.
+* [IMPROVMENT]	Updated Readme (documentation).
+
+
+Version 0.4
+
+* [NEW]			Editor implementation now properly saves the file when the download completes.
+* [NEW]			CancelDownload will now validate its argument (check for null)
+
+* [NEW]			Added some basic unit tests
+
+
+Version 0.3
+
+* [NEW]			On iOS, re-initialize the target destination path for every download that gets started
+* [NEW]			DownloadOperation.DestinationPath property that returns the full path of the downloaded file
+* [NEW]			Added unit tests for verifying BackgroundDownloadOptions state (more will be added in the future)
+* [IMPROVMENT]	Better argument validation for various methods
+
+Version 0.2
+
+* Removed unneeded (and excessive) logs from iOS download implementation.
+
+Version 0.1
+
+* Initial version with a unified API that works on the Unity editor, Android and iOS

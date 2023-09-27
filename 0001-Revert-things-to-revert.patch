@@ -1,0 +1,81 @@
+From 693efad4d48dc6397cba02668dbd07b27187e271 Mon Sep 17 00:00:00 2001
+From: jakedowns <jdowns@wright20.com>
+Date: Mon, 16 Jan 2023 10:19:37 -0800
+Subject: [PATCH] Revert "things to revert"
+
+This reverts commit 51d39db1aafe48bb8ce45b21438e2ed7fb8722c2.
+---
+ Android/gradle/wrapper/gradle-wrapper.properties | 2 +-
+ Android/launcher/build.gradle                    | 5 ++++-
+ Android/unityLibrary/build.gradle                | 2 +-
+ 3 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/Android/gradle/wrapper/gradle-wrapper.properties b/Android/gradle/wrapper/gradle-wrapper.properties
+index 5e9dbb1..aea8d9c 100644
+--- a/Android/gradle/wrapper/gradle-wrapper.properties
++++ b/Android/gradle/wrapper/gradle-wrapper.properties
+@@ -1 +1 @@
+-distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-bin.zip
+\ No newline at end of file
++distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip
+\ No newline at end of file
+diff --git a/Android/launcher/build.gradle b/Android/launcher/build.gradle
+index d6e1b4a..fc79505 100644
+--- a/Android/launcher/build.gradle
++++ b/Android/launcher/build.gradle
+@@ -5,7 +5,7 @@ dependencies {
+     }
+ 
+ android {
+-    ndkPath "J:/Unity/2022.2.1f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
++//    ndkPath "J:/Unity/2022.2.1f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
+ 
+     compileSdkVersion 33
+     buildToolsVersion '33.0.1'
+@@ -24,6 +24,7 @@ android {
+         }
+         versionCode 11
+         versionName '0.1.1'
++        resValue "string", "google_iap_license_key", "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnU076Q+bmjU2p2Ri0DKddBDWAZktd4fkE6hao3g/TTEBp33WinX9C7zdQgC/pMwGXCHohdhES0WZuqni1Rf3/+ltH5mQnGL6tCJw+IGAXbXh8M1oZnwZnrrDJRRnssuKkKsgdw+NpXu4F5PTp//Pc4N3zC+u0+3XYOblCGrKvcX1jxmN8RWTPZKJrqoJKcWctpms/mdQpqfMpaTv8IirWitKe/37No8mKu+WCTsAFnxqWsrsF1Vg0nNuuqsTf82AiPaZ5krhUmUE1mcoyUJO2j9lJlgabc2r1/mNWQQQpt+cfpBuEa10rSF1HiSNUjA88iQuK9CqTVT+uJRXsm4O8wIDAQAB"
+     }
+ 
+     aaptOptions {
+@@ -33,6 +34,7 @@ android {
+ 
+     lintOptions {
+         abortOnError false
++        checkReleaseBuilds false
+     }
+ 
+     buildTypes {
+@@ -52,6 +54,7 @@ android {
+     packagingOptions {
+         doNotStrip '*/armeabi-v7a/*.so'
+         doNotStrip '*/arm64-v8a/*.so'
++        pickFirst '**/libc++_shared.so'
+     }
+ 
+     bundle {
+diff --git a/Android/unityLibrary/build.gradle b/Android/unityLibrary/build.gradle
+index 6aa8918..4caa737 100644
+--- a/Android/unityLibrary/build.gradle
++++ b/Android/unityLibrary/build.gradle
+@@ -49,6 +49,7 @@ android {
+     packagingOptions {
+         doNotStrip '*/armeabi-v7a/*.so'
+         doNotStrip '*/arm64-v8a/*.so'
++        pickFirst '**/libc++_shared.so'
+     }
+ }
+ 
+@@ -68,7 +69,6 @@ def BuildIl2Cpp(String workingDir, String configuration, String architecture, St
+     commandLineArgs.add("--baselib-directory=" + workingDir + "/src/main/jniStaticLibs/" + abi)
+     commandLineArgs.add("--incremental-g-c-time-slice=3")
+     commandLineArgs.add("--dotnetprofile=unityaot-linux")
+-    commandLineArgs.add("--enable-debugger")
+     commandLineArgs.add("--profiler-report")
+     commandLineArgs.add("--profiler-output-file=" + workingDir + "/build/il2cpp_"+ abi + "_" + configuration + "/il2cpp_conv.traceevents")
+     commandLineArgs.add("--print-command-line")
+-- 
+2.25.1
+
