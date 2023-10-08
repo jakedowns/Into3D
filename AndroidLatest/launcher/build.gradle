@@ -5,10 +5,10 @@ dependencies {
     }
 
 android {
-    ndkPath "J:/Unity/2022.2.1f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
+    ndkPath "C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/AndroidPlayer/NDK"
 
     compileSdkVersion 33
-    buildToolsVersion '33.0.1'
+    buildToolsVersion '32.0.0'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
@@ -19,7 +19,6 @@ android {
         minSdkVersion 26
         targetSdkVersion 33
         applicationId 'com.jakedowns.into3D'
-        resValue "string", "google_iap_license_key", "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnU076Q+bmjU2p2Ri0DKddBDWAZktd4fkE6hao3g/TTEBp33WinX9C7zdQgC/pMwGXCHohdhES0WZuqni1Rf3/+ltH5mQnGL6tCJw+IGAXbXh8M1oZnwZnrrDJRRnssuKkKsgdw+NpXu4F5PTp//Pc4N3zC+u0+3XYOblCGrKvcX1jxmN8RWTPZKJrqoJKcWctpms/mdQpqfMpaTv8IirWitKe/37No8mKu+WCTsAFnxqWsrsF1Vg0nNuuqsTf82AiPaZ5krhUmUE1mcoyUJO2j9lJlgabc2r1/mNWQQQpt+cfpBuEa10rSF1HiSNUjA88iQuK9CqTVT+uJRXsm4O8wIDAQAB"
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
@@ -34,7 +33,6 @@ android {
 
     lintOptions {
         abortOnError false
-        checkReleaseBuilds false
     }
 
     buildTypes {
